@@ -104,5 +104,33 @@ namespace my_library_for_cs
                 }
             }
         }
+
+        /// <summary>
+        /// 列挙型拡張クラス
+        /// </summary>
+        public static class EnumExtensions
+        {
+            /// <summary>
+            /// 文字列をTEnum型の列挙型に変換する
+            /// </summary>
+            /// <typeparam name="TEnum">列挙型</typeparam>
+            /// <param name="value">列挙定数の文字列</param>
+            /// <returns>列挙定数</returns>
+            public static TEnum String2Enum<TEnum>(string value)
+            {
+                return (TEnum)Enum.Parse(typeof(TEnum), value);
+            }
+
+            /// <summary>
+            /// 整数をTEnum型の列挙型に変換する
+            /// </summary>
+            /// <typeparam name="TEnum">列挙型</typeparam>
+            /// <param name="value">列挙定数の整数</param>
+            /// <returns>列挙定数</returns>
+            public static TEnum Int2Enum<TEnum>(int value)
+            {
+                return (TEnum)Enum.ToObject(typeof(TEnum), value);
+            }
+        }
     }
 }
